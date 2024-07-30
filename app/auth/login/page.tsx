@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import React, { useState } from "react";
 import { login } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from "react-hot-toast";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -19,8 +20,14 @@ const Login = () => {
     const response = await login(formdata);
     console.log(response);
 
+    if (response.success) {
+      toast.success("logged in successfull");
+      router.push("/");
+    } else {
+      toast.error("login failed");
+    }
+
     setLoading(false);
-    router.push("/");
   };
 
   return (
@@ -88,6 +95,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
