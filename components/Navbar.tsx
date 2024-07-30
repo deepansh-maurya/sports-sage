@@ -1,14 +1,11 @@
 "use client";
 import logo from "../public/logo.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { checkAuth } from "@/app/actions/user";
 import { useEffect, useState } from "react";
 const Navbar = () => {
   const [kAuth, setCheckAuth] = useState(true);
   async function forAuth() {
-    console.log("Asd");
-
     const res = await checkAuth();
     console.log(res);
 
