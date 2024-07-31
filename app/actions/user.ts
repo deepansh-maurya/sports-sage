@@ -10,7 +10,7 @@ export async function checkAuth() {
   else return false;
 }
 
-export async function addTestimonial(text: string) {
+export async function addTestimonial(text: string, name: string) {
   try {
     const res = await verifySession();
     if (!res.user) {
@@ -25,6 +25,7 @@ export async function addTestimonial(text: string) {
       data: {
         userId: id,
         content: text,
+        name: name,
       },
     });
 

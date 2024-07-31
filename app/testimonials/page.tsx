@@ -7,12 +7,13 @@ import { useRouter } from "next/navigation";
 
 const Testimonials = () => {
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await addTestimonial(message);
+    const res = await addTestimonial(message, name);
     console.log(res);
 
     if (res.success) {
@@ -41,12 +42,23 @@ const Testimonials = () => {
           </h1>
           <form onSubmit={handleSubmit} className="mb-6 mt-6">
             <div className="mb-4">
+              <input
+                id="name"
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                value={message}
+                onChange={(e) => setName(e.target.value)}
+                maxLength={250}
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mb-4">
               <textarea
                 id="name"
                 className="w-full p-3 border border-gray-300 rounded-lg h-56"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 maxLength={250}
+                placeholder="Say something"
               ></textarea>
             </div>
 
