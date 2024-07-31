@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { signup } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from "react-hot-toast";
 const Signup: React.FC = () => {
   const router = useRouter();
   const [name, setName] = useState<string>("");
@@ -32,7 +33,11 @@ const Signup: React.FC = () => {
     const response = await signup(formdata);
     setLoading(false);
 
-    router.push("/auth/login");
+    if (response.success) {
+      toast.success("sign up successfully");
+      router.push("/auth/login");
+    } else toast.error("signup failed");
+
     console.log(response);
   };
 
@@ -117,6 +122,7 @@ const Signup: React.FC = () => {
           </form>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

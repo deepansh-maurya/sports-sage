@@ -1,19 +1,17 @@
 "use client";
 import logo from "../public/logo.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { checkAuth } from "@/app/actions/user";
 import { useEffect, useState } from "react";
 const Navbar = () => {
   const [kAuth, setCheckAuth] = useState(true);
-  const router = useRouter();
   async function forAuth() {
     const res = await checkAuth();
     console.log(res);
 
     if (res) {
-      setCheckAuth(false);
-    } else router.push("/auth/login");
+      setCheckAuth(true);
+    } else setCheckAuth(false);
   }
   useEffect(() => {
     forAuth();
@@ -29,10 +27,11 @@ const Navbar = () => {
       <ul className="flex justify-center text-xl gap-9 font-medium items-center">
         <li>{kAuth ? <div>Sports</div> : <a href="/sports">Sports</a>}</li>
         <a href="/">How it Works?</a>
-        <li>Testimonial</li>
-        {kAuth && (
+        <a href="/testimonials">Testimonial</a>
+
+        {!kAuth && (
           <li className="px-6 py-2 bg-purple-500 rounded-3xl text-pink-100 font-bold">
-            <div onClick={forAuth}>Register</div>
+            <a href="/auth/signup">Register</a>
           </li>
         )}
       </ul>

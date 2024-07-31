@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import logo from "../public/logo.png";
 import lecture from "../public/lecture.png";
@@ -16,7 +17,25 @@ import utube from "../public/utube.png";
 import Image from "next/image";
 import hero from "../public/hero.png";
 import Testimonials from "@/components/Testimonials";
+import { useEffect, useState } from "react";
+import { getTestimonial } from "./actions/user";
+
+interface Testi {
+  content: string;
+}
+
 export default function Home() {
+  const [message, setMessage] = useState<Testi[]>();
+  async function getTesti() {
+    const res = await getTestimonial();
+    console.log(res);
+    if (res.success) setMessage(res.testimonial);
+  }
+  useEffect(() => {
+    getTesti();
+  }, []);
+  console.log(message);
+
   return (
     <div className="">
       <Navbar />
@@ -171,7 +190,7 @@ export default function Home() {
           <p>Privacy Policy</p>
           <p>FAQs</p>
         </main>
-        <main className="w-[20%] flex flex-col gap-4 mt-7 ">
+        <main className="w-[20%] flex flex-col gap-4 mt-7  ">
           <h1 className="text-3xl mb-3">ABOUT US</h1>
           <h2>
             At Sportstoon, we understand that a balance of fascination, skill

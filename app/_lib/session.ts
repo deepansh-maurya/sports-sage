@@ -47,6 +47,7 @@ interface DecodedToken {
 
 export async function verifySession() {
   const token = cookies().get("token")?.value;
+  console.log(token);
 
   let decryptedToken: string | JwtPayload;
   if (token && process.env.JWT_SECRET_KEY)
