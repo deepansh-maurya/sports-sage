@@ -25,7 +25,7 @@ const Navbar = () => {
         <h1 className="text-3xl">Sportsy</h1>
       </div>
       <ul className="flex justify-center text-xl gap-9 font-medium items-center">
-        <li>{kAuth ? <div>Sports</div> : <a href="/sports">Sports</a>}</li>
+        <li>{kAuth ? <a href="/sports">Sports</a> : <div>Sports</div>}</li>
         <a href="/">How it Works?</a>
         <a href="/testimonials">Testimonial</a>
 

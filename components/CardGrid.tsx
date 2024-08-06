@@ -57,21 +57,21 @@ export default function Cardgrid() {
   ];
   return (
     <div className=" mt-10 items-center justify-center bg-gradient-to-r from-orange-300 to-pink-100 min-h-screen bg-gray-100 flex flex-col">
-      <h1 className="mt-10 mb-10 text-5xl font-medium">
+      <h1 className="mt-10 mb-10 text-5xl font-medium text-shadow-lg">
         {" "}
         Pick a Sport and Start Learning
       </h1>
 
-      <div className="flex flex-wrap justify-center p-4">
+      <div className="flex flex-wrap justify-center p-4 ">
         {cards.map((card, index) => (
           <div
             onClick={() => {
               router.push(`/sports/${photNames[index]}`);
             }}
             key={index}
-            className="relative p-4 m-2 w-full shadow-black  h-48 lg:w-1/4 bg-white rounded shadow-md hover:bg-gray-100  flex  transform transition-transform duration-300 hover:scale-105  hover:shadow-xl justify-center items-center text-3xl"
+            className="relative p-4 m-2 w-full shadow-black   h-48 lg:w-1/4  rounded shadow-md hover:bg-gray-100  flex  transform transition-transform duration-300 hover:scale-105  hover:shadow-xl justify-center items-center text-3xl"
           >
-            <div className=" hover:opacity-0 hover:bg-black flex transition duration-300 items-center justify-center">
+            <div className=" hover:opacity-0 hover:bg-black  flex transition duration-300 items-center justify-center">
               <div className="p-8 text-3xl font-medium ">
                 {photNames[index]}
               </div>
