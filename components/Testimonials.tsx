@@ -9,6 +9,7 @@ import { getTestimonial } from "@/app/actions/user";
 
 interface Testi {
   content: string;
+  name: string;
 }
 
 export default function Testimonials() {
@@ -41,7 +42,7 @@ export default function Testimonials() {
         <RiArrowLeftWideLine />
       </div>
       <h1 className="text-2xl font-medium bottom-52 absolute left-[25%]">
-        Pankaj
+        {message && message[index].name}
       </h1>
       <div className="flex  justify-center items-center mt-7">
         <Image

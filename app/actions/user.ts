@@ -19,7 +19,10 @@ export async function addTestimonial(text: string, name: string) {
     const id = res.user?.id;
     if (id == undefined) throw new Error("User ID is undefined");
 
-    console.log(res.user);
+    console.log("---------------");
+
+    console.log(name, text);
+    console.log("---------------");
 
     const testimonial = await client.testimonials.create({
       data: {
@@ -28,6 +31,8 @@ export async function addTestimonial(text: string, name: string) {
         name: name,
       },
     });
+
+    console.log(testimonial);
 
     if (!testimonial) {
       return { message: "failed to create testimonial", success: false };
@@ -41,7 +46,7 @@ export async function addTestimonial(text: string, name: string) {
 export async function getTestimonial() {
   try {
     const testimonial = await client.testimonials.findMany({
-      select: { content: true },
+      select: { content: true, name: true },
     });
 
     const userName = await client.user.findMany();

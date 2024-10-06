@@ -26,7 +26,7 @@ const Navbar = () => {
       </div>
       <ul className="flex justify-center text-xl gap-9 font-medium items-center">
         <li>{kAuth ? <a href="/sports">Sports</a> : <div>Sports</div>}</li>
-        <a href="/">How it Works?</a>
+        <a href="/how-it-works">How it Works?</a>
         <a href="/testimonials">Testimonial</a>
 
         {!kAuth && (

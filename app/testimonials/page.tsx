@@ -10,6 +10,13 @@ const Testimonials = () => {
   const [name, setName] = useState("");
   const router = useRouter();
 
+  console.log("--------start---------");
+
+  console.log(name);
+  console.log("---------------------");
+  console.log(message);
+  console.log("-------end----------");
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -45,7 +52,7 @@ const Testimonials = () => {
               <input
                 id="name"
                 className="w-full p-3 border border-gray-300 rounded-lg"
-                value={message}
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 maxLength={250}
                 placeholder="Enter your name"
