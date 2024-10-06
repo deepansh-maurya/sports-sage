@@ -20,16 +20,20 @@ const Testimonials = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await addTestimonial(message, name);
-    console.log(res);
+    if (message != "" && name != "") {
+      const res = await addTestimonial(message, name);
+      console.log(res);
 
-    if (res.success) {
-      toast.success("successfully created testimonial");
-      setTimeout(() => {
-        router.push("/");
-      }, 2000);
+      if (res.success) {
+        toast.success("successfully created testimonial");
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
+      } else {
+        toast.error("failed to create testimonial");
+      }
     } else {
-      toast.error("failed to create testimonial");
+      toast("Feilds are empty");
     }
   };
 

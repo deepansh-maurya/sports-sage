@@ -51,7 +51,7 @@ export default function Cardgrid() {
     "kho kho",
     "kite flying",
     "squash",
-    "table",
+    "table tennis",
     "tennis",
     "volleyball",
   ];

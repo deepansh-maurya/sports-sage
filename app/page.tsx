@@ -209,8 +209,8 @@ export default function Home() {
             <Image src={utube} alt="" className="w-[20%] rounded-full" />
           </div>
           <div>
-            <h3>Email : info@sportstoon.com</h3>
-            <h3>Web : www.sportstoon.com</h3>
+            <h3>Email : info@sportsy.com</h3>
+            <h3>Web : www.sportsy.com</h3>
           </div>
         </main>
       </section>
