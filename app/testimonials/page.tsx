@@ -41,7 +41,7 @@ const Testimonials = () => {
           {/* <h1 className="text-2xl font-bold mb-6">Write Testimonials</h1> */}
           <h1 className="flex flex-col  relative w-[500px] h-[100px]">
             <p className="text-5xl absolute bottom-6 left-6 font-bold z-10 ">
-              Sportsy Say's
+              {"Sportsy Say's"}
             </p>
             <p className="text-7xl font-bold text-slate-400 opacity-[30%]">
               Testimonials

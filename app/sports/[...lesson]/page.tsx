@@ -147,7 +147,7 @@ const lectures = {
   },
 };
 
-export default function lesson({ params }: { params: { lesson: string } }) {
+export default function Lesson({ params }: { params: { lesson: string } }) {
   const router = useRouter();
   const lesson: string = params.lesson;
   console.log(lesson);
@@ -199,7 +199,10 @@ export default function lesson({ params }: { params: { lesson: string } }) {
                     : []
                   ).map((data: string) => {
                     return (
-                      <p className="text-center bg-white mt-2 mb=2 bg-gradient-to-r from-orange-100 to-red-100">
+                      <p
+                        key={data}
+                        className="text-center bg-white mt-2 mb=2 bg-gradient-to-r from-orange-100 to-red-100"
+                      >
                         {data}
                       </p>
                     );
@@ -217,7 +220,7 @@ export default function lesson({ params }: { params: { lesson: string } }) {
                 Game Skills 🠻
               </h1>
               {gameSkill && (
-                <div>
+                <div key={Math.random()}>
                   {(gameSkills as any)[lesson].map((data: string) => {
                     return (
                       <p className="text-center bg-white mt-2 mb=2 bg-gradient-to-r from-orange-100 to-red-100">
@@ -241,7 +244,10 @@ export default function lesson({ params }: { params: { lesson: string } }) {
                 Basic Skills
               </h1>
               {basic && (
-                <div className="flex flex-wrap gap-2 relative right-16 mt-7">
+                <div
+                  key={Math.random()}
+                  className="flex flex-wrap gap-2 relative right-16 mt-7"
+                >
                   {(lectures as any)[lesson].basic.map((data: string) => {
                     return (
                       <iframe
@@ -281,7 +287,10 @@ export default function lesson({ params }: { params: { lesson: string } }) {
                 Intermediate
               </h1>
               {Intermediate && (
-                <div className="flex flex-wrap gap-2 relative right-16 mt-7">
+                <div
+                  key={Math.random()}
+                  className="flex flex-wrap gap-2 relative right-16 mt-7"
+                >
                   {(lectures as any)[lesson].intermediate.map(
                     (data: string) => {
                       return (
@@ -323,7 +332,10 @@ export default function lesson({ params }: { params: { lesson: string } }) {
                 Advance
               </h1>
               {Advance && (
-                <div className="flex flex-wrap gap-2 relative right-16 mt-7 mb-7">
+                <div
+                  key={Math.random()}
+                  className="flex flex-wrap gap-2 relative right-16 mt-7 mb-7"
+                >
                   {(lectures as any)[lesson].advance.map((data: string) => {
                     return (
                       <iframe
