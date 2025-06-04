@@ -314,7 +314,10 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                 <div key={Math.random()}>
                   {(gameSkills as any)[lesson].map((data: string) => {
                     return (
-                      <p className="text-center bg-white mt-2 mb=2 bg-gradient-to-r from-orange-100 to-red-100">
+                      <p
+                        key={data.length}
+                        className="text-center bg-white mt-2 mb=2 bg-gradient-to-r from-orange-100 to-red-100"
+                      >
                         {data}
                       </p>
                     );
@@ -342,6 +345,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                   {(lectures as any)[lesson].basic.map((data: string) => {
                     return (
                       <iframe
+                        key={data.length}
                         width="360"
                         height="215"
                         src={data}
@@ -386,6 +390,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                     (data: string) => {
                       return (
                         <iframe
+                          key={data.length}
                           width="360"
                           height="215"
                           src={data}
@@ -430,6 +435,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                   {(lectures as any)[lesson].advance.map((data: string) => {
                     return (
                       <iframe
+                        key={data.length}
                         width="360"
                         height="215"
                         src={data}
