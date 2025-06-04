@@ -4,6 +4,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { signup } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from "react-hot-toast";
+import { addNotificationToLocalStorage } from "@/utils/gemini";
 const Signup: React.FC = () => {
   const router = useRouter();
   const [name, setName] = useState<string>("");
@@ -34,6 +35,7 @@ const Signup: React.FC = () => {
     setLoading(false);
 
     if (response.success) {
+      addNotificationToLocalStorage("User signed up successfully")
       toast.success("sign up successfully");
       router.push("/auth/login");
     } else toast.error("signup failed");
@@ -44,8 +46,8 @@ const Signup: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r mt-4    from-orange-300 to-orange-200 ">
-        <div className="w-full max-w-md p-8 space-y-6 bg-gradient-to-r from-orange-300 to-fuchsia-300 rounded shadow-md  transform transition-transform duration-300 hover:scale-105  hover:shadow-xl">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r mt-4  ">
+        <div className="w-full max-w-md p-8 space-y-6 bg-gradient-to-r  rounded shadow-md  bg-gradient-to-r from-red-200 to-yellow-200  transform transition-transform duration-300 hover:scale-105  hover:shadow-xl">
           <h2 className="text-2xl font-bold text-center">Signup</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="form-group">

@@ -56,7 +56,7 @@ export default function Cardgrid() {
     "volleyball",
   ];
   return (
-    <div className=" mt-10 items-center justify-center bg-gradient-to-r from-orange-300 to-pink-100 min-h-screen bg-gray-100 flex flex-col">
+    <div className=" mt-10 items-center justify-center bg-gradient-to-r min-h-screen bg-gray-100 flex flex-col">
       <h1 className="mt-10 mb-10 text-5xl font-medium text-shadow-lg">
         {" "}
         Pick a Sport and Start Learning

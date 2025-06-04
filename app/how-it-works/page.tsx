@@ -2,9 +2,9 @@ import Navbar from "@/components/Navbar";
 
 const HowITWorks = () => {
   return (
-    <section className="bg-gradient-to-t from-teal-100 to-red-200 p-[1px]">
+    <section className="bg-gradient-to-tp-[1px]">
       <Navbar />
-      <div className="mt-24 w-[80%] mx-auto border px-5 py-5 mb-4 bg-gradient-to-r from-orange-200 to-rose-300   transform transition-transform duration-300 hover:scale-105 hover:shadow-xl shadow-black">
+      <div className="mt-24 w-[80%] mx-auto border px-5 py-5 mb-4 bg-gradient-to-r bg-gradient-to-r from-red-100 to-yellow-100  transform transition-transform duration-300 hover:scale-105 hover:shadow-xl shadow-black">
         <h1 className="text-center text-2xl font-bold">How It Works</h1>
         <ul>
           <div>

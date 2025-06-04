@@ -7,20 +7,35 @@ import footballg from "../../../public/asset/footballg.png";
 import badmintong from "../../../public/asset/badmintong.png";
 import badmintonp from "../../../public/asset/badmintonp.png";
 
+import baseballp from "../../../public/asset/baseballp.png";
+import baseballg from "../../../public/asset/baseballg.png";
+import carromp from "../../../public/asset/carromp.jpg";
+import carromg from "../../../public/asset/carromg.png";
+
 import { StaticImageData } from "next/image";
 import { useState } from "react";
+
 interface Lesson {
   football: StaticImageData;
   badminton: StaticImageData;
+  baseball: StaticImageData;
+  carrom: StaticImageData;
 }
+
 const playerArray: Lesson = {
   badminton: badmintonp,
   football: footballp,
+  baseball: baseballp,
+  carrom: carromp
 };
+
 const fieldArray: Lesson = {
   football: footballg,
   badminton: badmintong,
+  baseball: baseballg,
+  carrom: carromg
 };
+
 const gameRules = {
   football: [
     "Kick-off starts the game",
@@ -42,7 +57,7 @@ const gameRules = {
     "Equal teams on field",
     "Game duration 90 minutes",
     "Goal scoring objective",
-    "Fair play mandatory",
+    "Fair play mandatory"
   ],
   badminton: [
     "Rally scoring system used",
@@ -64,8 +79,32 @@ const gameRules = {
     "Shuttlecock must cross the net",
     "Let serves result in replay",
     "Out of bounds if beyond lines",
-    "Fair play and sportsmanship required",
+    "Fair play and sportsmanship required"
   ],
+  baseball: [
+    "Each team has 9 players",
+    "Game is played over 9 innings",
+    "Pitcher throws to the batter",
+    "Runs scored by reaching home plate",
+    "Three strikes means an out",
+    "Three outs ends the batting team's turn",
+    "Fair and foul ball rules apply",
+    "No running outside the base path",
+    "Tagging runners out is allowed",
+    "Batter must touch all bases to score"
+  ],
+  carrom: [
+    "Game played on square board",
+    "Use striker to hit coins",
+    "Pocket all coins of your color",
+    "Queen must be covered",
+    "Each pocketed coin gives 1 point",
+    "First to reach score target wins",
+    "Fouls lead to penalties",
+    "No hand contact with pieces",
+    "Turns alternate among players",
+    "Proper striker placement is required"
+  ]
 };
 const gameSkills = {
   football: [
@@ -77,7 +116,7 @@ const gameSkills = {
     "Tackling",
     "Trapping",
     "Shooting",
-    "Goalkeeping",
+    "Goalkeeping"
   ],
   badminton: [
     "Footwork",
@@ -94,8 +133,30 @@ const gameSkills = {
     "Shot Selection",
     "Anticipation",
     "Tactical Play",
-    "Mental Toughness",
+    "Mental Toughness"
   ],
+  baseball: [
+    "Batting",
+    "Pitching",
+    "Fielding",
+    "Throwing",
+    "Base Running",
+    "Game Awareness",
+    "Catching",
+    "Sliding",
+    "Team Coordination"
+  ],
+  carrom: [
+    "Striking Accuracy",
+    "Speed Control",
+    "Pocketing",
+    "Defensive Play",
+    "Coin Placement Strategy",
+    "Rebound Shots",
+    "Board Awareness",
+    "Covering the Queen",
+    "Breaking Setup"
+  ]
 };
 
 const lectures = {
@@ -105,22 +166,22 @@ const lectures = {
       "https://www.youtube.com/embed/__kbC4hzcTo?si=tMlRpd82D3O18sZu",
       "https://www.youtube.com/embed/_f9ZIh8ESn4?si=InRldp_E6mw19CAF",
       "https://www.youtube.com/embed/g930trA83j0?si=-4BvK1gPoArp5Zl2",
-      "https://www.youtube.com/embed/U9OcS2kPECk?si=Mwvj5lTWoCf7H8Ku",
+      "https://www.youtube.com/embed/U9OcS2kPECk?si=Mwvj5lTWoCf7H8Ku"
     ],
     intermediate: [
       "https://www.youtube.com/embed/KDgc1smpJuc?si=dbLqxmjkYdgRAxWz",
       "https://www.youtube.com/embed/YHnQtydwmdQ?si=SFFvC-QzPYaC_wiM",
       "https://www.youtube.com/embed/XxKLHd1_oVs?si=0kPILoemLd_kM6sS",
       "https://www.youtube.com/embed/SxVaMcHqcoU?si=FcZSoiR0GnZDgX55",
-      "https://www.youtube.com/embed/6mFfS1PE3Vo?si=4ner02xiWIo665E8",
+      "https://www.youtube.com/embed/6mFfS1PE3Vo?si=4ner02xiWIo665E8"
     ],
     advance: [
       "https://www.youtube.com/embed/efdxdNxqBQI?si=T1e6_KLly4-Y71e3",
       "https://www.youtube.com/embed/YrH-Hky1WI0?si=pIUOTyIUSW6_7F31",
       "https://www.youtube.com/embed/1yPMlA2tbGw?si=AVUAy-L3DOfFXoC-",
       "https://www.youtube.com/embed/fVX_3AVVDRM?si=Eq2ldvgG30nmx9z_",
-      "https://www.youtube.com/embed/V6JbOjYoTf8?si=j9GwKwL2B1k435H1",
-    ],
+      "https://www.youtube.com/embed/V6JbOjYoTf8?si=j9GwKwL2B1k435H1"
+    ]
   },
   badminton: {
     basic: [
@@ -128,23 +189,53 @@ const lectures = {
       "https://www.youtube.com/embed/fQsL6MdDpZ4?si=v4MsXoOj7CL8N5Zv",
       "https://www.youtube.com/embed/AGY-gQ_3O8Y?si=4clxpSwOTcUwinIz",
       "https://www.youtube.com/embed/xRv1JLg4NMM?si=51h2QDTq9x1_hnxh",
-      "https://www.youtube.com/embed/CC0FGFSarhQ?si=3t9csJK64sWfxDrL",
+      "https://www.youtube.com/embed/CC0FGFSarhQ?si=3t9csJK64sWfxDrL"
     ],
     intermediate: [
       "https://www.youtube.com/embed/doV0m6MNTCo?si=ubsN-VwC2927dK3h",
       "https://www.youtube.com/embed/u5cyCi7fu7c?si=NQr18FVT5CB8h6Xj",
       "https://www.youtube.com/embed/3l16uxb7Lgo?si=w7FdGBAPrIks_0dp",
       "https://www.youtube.com/embed/xRv1JLg4NMM?si=GxhlKSRpWZH4V5cF",
-      "https://www.youtube.com/embed/etlilryD2bY?si=0y9w5WHJhmdPAqAB",
+      "https://www.youtube.com/embed/etlilryD2bY?si=0y9w5WHJhmdPAqAB"
     ],
     advance: [
       "https://www.youtube.com/embed/06tQXbHbXhA?si=QhnaHeTVUrqc6lrZ",
       "https://www.youtube.com/embed/x13pHLR2wXg?si=ScH8gwfDiWZYMVoA",
       "https://www.youtube.com/embed/mMUXYqbpID4?si=uvicRt7q9PtAnm5T",
       "https://www.youtube.com/embed/B1AL910jsvA?si=IyacEf12Mv4ryDAK",
-      "https://www.youtube.com/embed/ByzrIHGS1xQ?si=1h1VxMwtx8NuU8R4",
-    ],
+      "https://www.youtube.com/embed/ByzrIHGS1xQ?si=1h1VxMwtx8NuU8R4"
+    ]
   },
+  baseball: {
+    basic: [
+      "https://www.youtube.com/embed/skOsApsF0jQ?si=iu5GVDBNgf6qccSJ&amp;controls=0",
+      "https://www.youtube.com/embed/CRoIlstuE2g?si=Koi2VYajNSsYzkEa&amp;controls=0",
+      "https://www.youtube.com/embed/E160D9rEY0M?si=WCEmuFpN5YXwCArV&amp;controls=0"
+    ],
+    intermediate: [
+      "https://www.youtube.com/embed/YY9tErIBVQw?si=OQzj33JRAuQ2-Bxg&amp;controls=0",
+      "https://www.youtube.com/embed/tEckJtLgPIs?si=zGsRnwJSW2_xAJi3&amp;controls=0",
+      "https://www.youtube.com/embed/57mc7Df7Arw?si=1fmE65i1srjSclLN&amp;controls=0"
+    ],
+    advance: [
+      "https://www.youtube.com/embed/jQv_sK_Gf7Y",
+      "https://www.youtube.com/embed/qVrOHcf9Xt0"
+    ]
+  },
+  carrom: {
+    basic: [
+      "https://www.youtube.com/embed/0JbnrnsIfVk",
+      "https://www.youtube.com/embed/Qum3KPtv_LY"
+    ],
+    intermediate: [
+      "https://www.youtube.com/embed/y2ZbLvjVLxQ",
+      "https://www.youtube.com/embed/JJyoasP-rnk"
+    ],
+    advance: [
+      "https://www.youtube.com/embed/FZ3BSXMXaSc",
+      "https://www.youtube.com/embed/ZduEfJjcLL0"
+    ]
+  }
 };
 
 export default function Lesson({ params }: { params: { lesson: string } }) {
@@ -161,7 +252,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
   return (
     <div className="overflow-x-hidden">
       <Navbar />
-      <section className="w-[100vw] mt-3 bg-gradient-to-r from-orange-300 to-rose-100 ">
+      <section className="w-[100vw] mt-3 bg-gradient-to-r">
         <main className="w-[100%] flex justify-evenly ">
           <Image
             src={(playerArray as any)[lesson]}
@@ -266,7 +357,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                         router.push(
                           `/test/advance-${lesson}-assessment?lesson=${[
                             lesson,
-                            "basic",
+                            "basic"
                           ]}`
                         );
                       }}
@@ -311,7 +402,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                         router.push(
                           `/test/advance-${lesson}-assessment?lesson=${[
                             lesson,
-                            "intermediate",
+                            "intermediate"
                           ]}`
                         );
                       }}
@@ -354,7 +445,7 @@ export default function Lesson({ params }: { params: { lesson: string } }) {
                         router.push(
                           `/test/advance-${lesson}-assessment?lesson=${[
                             lesson,
-                            "advance",
+                            "advance"
                           ]}`
                         );
                       }}

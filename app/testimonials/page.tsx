@@ -4,6 +4,7 @@ import React, { FormEvent, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { addTestimonial } from "../actions/user";
 import { useRouter } from "next/navigation";
+import { addNotificationToLocalStorage } from "@/utils/gemini";
 
 const Testimonials = () => {
   const [message, setMessage] = useState("");
@@ -25,6 +26,8 @@ const Testimonials = () => {
       console.log(res);
 
       if (res.success) {
+        addNotificationToLocalStorage("Thanks for your valueable feedback");
+
         toast.success("successfully created testimonial");
         setTimeout(() => {
           router.push("/");
@@ -40,7 +43,7 @@ const Testimonials = () => {
   return (
     <div>
       <Navbar />
-      <div className=" flex min-h-screen bg-gray-100 p-5 bg-gradient-to-r from-orange-200 to-pink-100 ">
+      <div className=" flex min-h-screen bg-gray-100 p-5 bg-gradient-to-r">
         <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-lg mt-24 bg-gradient-to-r from-cyan-100 to-amber-200   transform transition-transform duration-300 hover:scale-105  hover:shadow-xl">
           {/* <h1 className="text-2xl font-bold mb-6">Write Testimonials</h1> */}
           <h1 className="flex flex-col  relative w-[500px] h-[100px]">

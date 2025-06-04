@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="">
       <Navbar />
-      <section className="w-[100vw] mt-[124px]  flex justify-center items-center h-[500px] bg-gradient-to-b from-fuchsia-100  to-fuchsia-300  drop-shadow-2xl ">
+      <section className="w-[100vw] mt-[124px]  flex justify-center items-center h-[500px] bg-gradient-to-r from-red-200 to-yellow-200 drop-shadow-2xl ">
         <div className="relative ">
           <Image
             src={hero}
@@ -53,9 +53,9 @@ export default function Home() {
           />
         </div>
         <h1 className="text-6xl font-bold drop-shadow-2xl relative">
-          <p className="absolute left-5 bottom-5">Train Smart Play Hard</p>
+          <p className="absolute left-5 bottom-5">Think Sharp Push Hard</p>
           <p className=" text-gray-400 filter blur-sm opacity-70">
-            Train Smart Play Hard{" "}
+          Think Sharp Push Hard{" "}
           </p>
         </h1>
       </section>
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-[100vw] flex flex-col justify-center items-center h-[550px] bg-gradient-to-r from-rose-300 to-teal-100 mt-80 relative">
+      <section className="w-[100vw] flex flex-col justify-center items-center h-[550px]bg-gradient-to-r from-red-200 to-yellow-200 mt-80 relative">
         <div className="flex gap-0 justify-center items-center absolute top-0 right-[24%]">
           <Image src={testi} alt="" className="relative w-80 left-24" />
           <h1 className="flex flex-col relative w-[500px]">
