@@ -39,12 +39,17 @@ doalBmm7r3RrDTB+EzokXdjh2tz+MHEQja1XCB2YSnauY9qP0w==
 };
 
 const client = new pg.Client(config);
+//@ts-ignore
 client.connect(function (err) {
   if (err) throw err;
+//@ts-ignore
+
   client.query("SELECT VERSION()", [], function (err, result) {
     if (err) throw err;
 
     console.log(result.rows[0].version);
+//@ts-ignore
+
     client.end(function (err) {
       if (err) throw err;
     });
